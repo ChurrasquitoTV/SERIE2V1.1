@@ -6,11 +6,10 @@ module tt_um_ChurrasquitoTV (
     output [7:0] uio_oe,
     input        clk,
     input        rst_n,
-    input        ena,
-    output       clk_out
+    input        ena
 );
 
-    // Entradas internas
+    // Entradas del usuario
     wire clk_in       = ui_in[0];
     wire reset        = ~rst_n;
     wire enter_btn    = ui_in[2];
@@ -22,7 +21,7 @@ module tt_um_ChurrasquitoTV (
     wire error_led;
     wire [2:0] state_leds;
 
-    // Instancia del sistema de control
+    // Instancia de tu módulo funcional
     lock_top uut (
         .clk(clk_in),
         .reset(reset),
@@ -34,7 +33,7 @@ module tt_um_ChurrasquitoTV (
         .state_leds(state_leds)
     );
 
-    // Asignaciones a salidas estándar
+    // Asignaciones de salida
     assign uo_out[0] = locked_led;
     assign uo_out[1] = unlocked_led;
     assign uo_out[2] = error_led;
@@ -44,6 +43,5 @@ module tt_um_ChurrasquitoTV (
     assign uio_out = 8'b0;
     assign uio_oe  = 8'b0;
 
-    assign clk_out = 1'b0;
 endmodule
 
