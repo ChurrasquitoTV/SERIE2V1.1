@@ -11,9 +11,9 @@ project:
 
   source_files:
     - "tt_um_ChurrasquitoTV.v"
-    - "lock_top.v"
-    - "fsm_mealy.v"
-    - "fsm_moore.v"
+    - "look_top.v"
+    - "mealy.v"
+    - "moore.v"
     - "slow_clock.v"
 
 pinout:
