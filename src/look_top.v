@@ -22,7 +22,7 @@ module tt_um_ChurrasquitoTV (
     wire [2:0] state_leds;
 
     // Instancia de tu módulo funcional
-    lock_top uut (
+    tt_um_ChurrasquitoTV uut (
         .clk(clk_in),
         .reset(reset),
         .in_digit(in_digit),
