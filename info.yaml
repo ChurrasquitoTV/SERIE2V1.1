@@ -3,7 +3,7 @@ project:
   title:        "CERRADURA DE PIN"      # Project title
   author:       "BYRON DE LA CRUZ"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "FSM de chapa electrónica con PIN 9979 basada en Moore y Mealy"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     1000000       # Clock frequency in Hz (or 0 if not applicable)
 
