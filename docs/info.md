@@ -1,20 +1,14 @@
-<!---
+Cómo funciona?
+Este proyecto implementa una cerradura electrónica basada en una máquina de estados finitos (FSM) combinada (Moore + Mealy). El debe ingresar un PIN de 4 dígitos de usuario (1-3-9-2) utilizando interruptores (digit[3:0]) y confirmar cada número con un botón (enter). Si la secuencia es correcta, se enciende un LED (abierto) indicando que la cerradura está abierta. Si se ingresa un número incorrecto, el sistema entra en estado de error y debe reiniciarse con el botón de reinicio.
 
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
+Cómo realizar la prueba
 
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
+Usa los 4 interruptores para poner el primer dígito (dígito[3:0]).
+Presione el botón enter para confirmar el dígito.
+Repite los pasos con los dígitos: 1, 3, 9, 2.
+Si la secuencia es correcta, se encenderá el LED de salida (abierto).
+Si te equivocas, presiona el botón reset y vuelve a intentar.
 
-## How it works
+Hardware externo
 
-Explain how your project works
-
-## How to test
-
-Explain how to use your project
-
-## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+BASYS33
