@@ -1,24 +1,28 @@
 module tt_um_ChurrasquitoTV (
-    input  [7:0] io_in,
-    output [7:0] io_out,
+    input  [7:0] ui_in,
+    output [7:0] uo_out,
+    input  [7:0] uio_in,
+    output [7:0] uio_out,
+    output [7:0] uio_oe,
     input        clk,
-    output       clk_out,
+    input        rst_n,
     input        ena,
-    input        rst_n   // <- obligatorio para TinyTapeout
+    output       clk_out
 );
 
-    // Señales internas
-    wire clk_in       = io_in[0];
-    wire reset        = ~rst_n; // <- convertir a activo alto si lo usas así
-    wire enter_btn    = io_in[2];
-    wire [3:0] in_digit = io_in[6:3];
+    // Entradas internas
+    wire clk_in       = ui_in[0];
+    wire reset        = ~rst_n;
+    wire enter_btn    = ui_in[2];
+    wire [3:0] in_digit = ui_in[6:3];
 
+    // Salidas internas
     wire locked_led;
     wire unlocked_led;
     wire error_led;
     wire [2:0] state_leds;
 
-    // Instancia del módulo funcional
+    // Instancia del sistema de control
     lock_top uut (
         .clk(clk_in),
         .reset(reset),
@@ -30,11 +34,15 @@ module tt_um_ChurrasquitoTV (
         .state_leds(state_leds)
     );
 
-    assign io_out[0] = locked_led;
-    assign io_out[1] = unlocked_led;
-    assign io_out[2] = error_led;
-    assign io_out[5:3] = state_leds;
-    assign io_out[7:6] = 2'b00;
+    // Asignaciones a salidas estándar
+    assign uo_out[0] = locked_led;
+    assign uo_out[1] = unlocked_led;
+    assign uo_out[2] = error_led;
+    assign uo_out[5:3] = state_leds;
+    assign uo_out[7:6] = 2'b00;
+
+    assign uio_out = 8'b0;
+    assign uio_oe  = 8'b0;
 
     assign clk_out = 1'b0;
 endmodule
