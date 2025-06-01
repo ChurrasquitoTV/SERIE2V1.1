@@ -1,4 +1,4 @@
-module tt_um_fsm_ChurrasquitoTV (
+module tt_um_ChurrasquitoTV (
     input  [7:0] io_in,
     output [7:0] io_out,
     input        clk,      // No usado, clock viene de io_in[0]
